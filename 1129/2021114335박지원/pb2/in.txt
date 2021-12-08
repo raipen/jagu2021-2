@@ -1,0 +1,11 @@
+10
+Kim 90
+Lee 85
+Park 70
+Choi 100
+Kang 50
+Hong 85
+Ryu 85
+Song 95
+Min 100
+Oh 75
