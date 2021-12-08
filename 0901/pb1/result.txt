@@ -1,0 +1,5 @@
+Kim, 73
+Lee, 88
+Park, 73
+Choi, 93
+Kang, 75

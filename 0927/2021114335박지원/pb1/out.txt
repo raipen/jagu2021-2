@@ -1,0 +1,11 @@
+5 Song
+10 Kim
+15 Ryu
+20 Lee
+30 ERROR
+40 Choi
+45 Lee
+50 Kang
+55 Han
+60 Hong
+70 Ma
