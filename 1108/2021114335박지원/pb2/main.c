@@ -99,6 +99,12 @@ void push(stack* this, element* value) {
 tree* pop(stack* this) {
     return deleteq(this->a);
 }
+
+tree* peek(stack* this) {
+    tree* temp = pop(this);
+    push(this, temp);
+    return temp;
+}
 //링크드 큐를 이용한 스택 구현 끝
 
 
@@ -166,6 +172,44 @@ void iterative_Inorder(tree* root) {
     freeStack(sta);
 }
 
+//재귀를 쓰지 않고 프리오더로 출력하는 함수
+void iterative_preorder(tree* root) {
+    stack* sta = newStack();
+    while (1) {
+        while (root) {
+            push(sta, root);
+            printf("%d ", root->value);
+            root = root->left;
+        }
+        root = pop(sta);
+        if (!root) break;
+        root = root->right;
+    }
+    freeStack(sta);
+}
+
+//재귀를 쓰지 않고 포스트오더로 출력하는 함수
+void iterative_postorder(tree* root) {
+    stack* sta = newStack();
+    while (1) {
+        while (root) {
+            push(sta, root);
+            push(sta, root);
+            root = root->left;
+        }
+        root = pop(sta);
+        if (!root) break;
+        if (root == peek(sta)) {
+            root = root->right;
+        }
+        else {
+            printf("%d ", root->value);
+            root = NULL;
+        }
+    }
+    freeStack(sta);
+}
+
 //트리 메모리 할당해제
 void freeTree(tree* root) {
     if (root) return;
@@ -183,5 +227,9 @@ void main() {
     levelorder(root);
     printf("\ninorder:");
     iterative_Inorder(root);
+    printf("\npreorder:");
+    iterative_preorder(root);
+    printf("\npostorder:");
+    iterative_postorder(root);
     freeTree(root);
 }
